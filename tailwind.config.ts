@@ -17,6 +17,8 @@ const config: Config = {
 				status: "rgb(67, 137, 247)",
 				header: "rgb(57, 57, 58)",
 				backdrop: "rgba(48, 48, 50, 0.4)",
+				faded: "#ccc",
+				ghost: "#eee",
 			},
 		},
 	},

@@ -37,8 +37,8 @@ export default function Sidebar({ isOpen }: Props) {
 					</div>
 				</div>
 
-				<button className="w-fit h-fit text-white">
-					<EditIcon className="w-7 h-7" />
+				<button className="w-fit h-fit p-2 flex items-center justify-center bg-transparent rounded transition-all hover:bg-sidebar group">
+					<EditIcon className="w-6 group-hover:[&>path]:fill-white" />
 				</button>
 			</div>
 		</nav>
