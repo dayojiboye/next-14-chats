@@ -2,6 +2,8 @@ import ChatData from "@/constants/dummy-api";
 import Image from "next/image";
 import React from "react";
 import EditIcon from "@/assets/edit-icon.svg";
+import CustomInput from "../CustomInput/CustomInput";
+import SearchIcon from "@/assets/search-icon.svg";
 
 type Props = {
 	isOpen: boolean;
@@ -41,6 +43,14 @@ export default function Sidebar({ isOpen }: Props) {
 					<EditIcon className="w-6 group-hover:[&>path]:fill-white" />
 				</button>
 			</div>
+
+			<CustomInput
+				icon={SearchIcon}
+				className="mt-5"
+				name="search"
+				placeholder="Search"
+				onChange={() => {}}
+			/>
 		</nav>
 	);
 }

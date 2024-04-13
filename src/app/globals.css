@@ -209,19 +209,17 @@ textarea {
 	font-family: inherit;
 	outline: none;
 	color: inherit;
-	/* display: none; */
 }
 
 input:not([type="radio"]):read-only,
 input:not([type="checkbox"]):read-only {
 	cursor: default;
-	/* background-color: #f1f0f3; */
 }
 
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
-	color: #92a4ac;
+	color: #ccc;
 }
 
 input[type="checkbox"] {

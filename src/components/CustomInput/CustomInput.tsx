@@ -1,48 +1,35 @@
+import { cn } from "@/utils/helpers";
 import React from "react";
 
 type Props = {
-	className: string | undefined;
-	label: string | undefined;
+	className?: string;
 	name: string;
-	onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-	value: string | number | readonly string[] | undefined;
-	placeholder: string | undefined;
-	inputClassName: string | undefined;
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+	value?: string | number | readonly string[];
+	placeholder?: string;
 	icon?: React.ElementType;
 } & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export default function CustomInput({
 	className,
-	label,
 	name,
 	onChange,
 	value,
 	placeholder,
-	inputClassName,
 	icon,
 	...props
 }: Props) {
 	const Icon = icon ? icon : null;
-	const [isFocused, setIsFocused] = React.useState(false);
 
 	return (
-		<div className={`w-full ${className}`}>
-			{label && (
-				<label
-					className="mb-[4px] text-sm font-medium w-fit block"
-					htmlFor={props.id ? props.id : name}
-				>
-					{label}
-				</label>
-			)}
-
+		<div className={cn("w-full", className)}>
 			<div className="w-full relative">
-				{icon && (
+				{Icon && (
 					<label
 						htmlFor={props.id ? props.id : name}
 						className="absolute top-[50%] translate-y-[-50%] z-[1] left-[12px]"
 					>
-						{Icon ? <Icon className={`w-5 h-5`} /> : null}
+						{Icon ? <Icon className="w-4 h-4" /> : null}
 					</label>
 				)}
 
@@ -52,9 +39,9 @@ export default function CustomInput({
 					id={props.id ? props.id : name}
 					onChange={onChange}
 					value={value}
-					className={`block h-[40px] border py-[10px] text-sm placeholder:text-[#868C98] w-full rounded-[10px] ${
-						icon ? "px-9" : "px-3"
-					} ${inputClassName}`}
+					className={`block h-[32px] py-[10px] text-sm placeholder:text-faded w-full rounded-[4px] bg-header ${
+						Icon ? "px-9" : "px-3"
+					}`}
 					{...props}
 				/>
 			</div>
