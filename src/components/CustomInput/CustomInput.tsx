@@ -39,7 +39,7 @@ export default function CustomInput({
 					id={props.id ? props.id : name}
 					onChange={onChange}
 					value={value}
-					className={`block h-[32px] py-[10px] text-sm placeholder:text-faded w-full rounded-[4px] bg-header ${
+					className={`block h-[32px] py-[10px] text-sm placeholder:text-faded w-full rounded-[4px] bg-input ${
 						Icon ? "px-9" : "px-3"
 					}`}
 					{...props}
