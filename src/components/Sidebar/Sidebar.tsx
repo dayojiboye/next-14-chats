@@ -5,12 +5,35 @@ import EditIcon from "@/assets/edit-icon.svg";
 import CustomInput from "../CustomInput/CustomInput";
 import SearchIcon from "@/assets/search-icon.svg";
 import ChatItem from "../ChatItem/ChatItem";
+import { TSearchResult } from "@/types";
+import { debounceInput } from "@/utils/helpers";
 
 type Props = {
 	isOpen: boolean;
 };
 
 export default function Sidebar({ isOpen }: Props) {
+	const [searchText, setSearchText] = React.useState<string>("");
+	const [searchResult, setSearchResult] = React.useState<TSearchResult>(ChatData.profile.friends);
+
+	const onSearch = () => {
+		if (searchText.length > 0) {
+			const updatedSearchResult: TSearchResult = ChatData.profile.friends.filter((friend) => {
+				const pattern = new RegExp("\\b" + searchText + "\\b", "i");
+				return pattern.test(friend.name) || pattern.test(friend.lastChat);
+			});
+			setSearchResult(updatedSearchResult);
+		} else {
+			setSearchResult(ChatData.profile.friends);
+		}
+	};
+
+	React.useEffect(() => {
+		const debounceTimer = debounceInput(() => onSearch());
+		return () => clearTimeout(debounceTimer);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [searchText]);
+
 	return (
 		<nav
 			data-transition="true"
@@ -51,12 +74,12 @@ export default function Sidebar({ isOpen }: Props) {
 					className="mt-5"
 					name="search"
 					placeholder="Search"
-					onChange={() => {}}
+					onChange={(e) => setSearchText(e.target.value)}
 				/>
 			</div>
 
 			<div className="flex flex-col px-4">
-				{ChatData.profile.friends.map((friend) => (
+				{searchResult.map((friend) => (
 					<ChatItem
 						key={friend.id}
 						name={friend.name}

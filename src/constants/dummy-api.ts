@@ -10,7 +10,8 @@ const ChatData = {
 				name: "Alex",
 				picture: "https://image.ibb.co/cA2oOb/alex_1.jpg",
 				latest_timestamp: "10:00 AM",
-				lastChat: "Or maybe not, let me check logistics and call you. Give me sometime",
+				// lastChat: "Or maybe not, let me check logistics and call you. Give me sometime",
+				lastChat: "Ask Bob please",
 			},
 			{
 				id: 3,
