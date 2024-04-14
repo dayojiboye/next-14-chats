@@ -7,11 +7,24 @@ type Props = {
 	picture?: string;
 	lastChat: string;
 	latest_timestamp: string;
+	id: number;
+	onClick?: () => void | undefined;
 };
 
-export default function ChatItem({ name, picture, lastChat, latest_timestamp }: Props) {
+export default function ChatItem({
+	name,
+	picture,
+	lastChat,
+	latest_timestamp,
+	id,
+	onClick,
+}: Props) {
 	return (
-		<Link href="" className="p-2 hover:rounded-md bg-transparent hover:bg-input flex gap-2">
+		<Link
+			href={`/${id}`}
+			onClick={onClick}
+			className="p-2 hover:rounded-md bg-transparent hover:bg-input flex gap-2"
+		>
 			{picture ? (
 				<Image
 					alt={name}

@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
 import HamburgerOpen from "@/assets/hamburger-icon.svg";
 import HamburgerClose from "@/assets/cancel-icon.svg";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { IS_DESKTOP } from "@/constants/variables";
 
 export default function PageLayout({
@@ -14,8 +14,10 @@ export default function PageLayout({
 	children: React.ReactNode;
 }>) {
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
-	const router = useRouter();
 	const pathname = usePathname();
+	const [chatHeaderInfo, setChatHeaderInfo] = React.useState<
+		{ id: number; name: string } | undefined
+	>();
 
 	const closeSidebar = () => {
 		setIsOpen(false);
@@ -45,8 +47,8 @@ export default function PageLayout({
 
 	return (
 		<div className="w-full md:h-screen md:overflow-y-scroll">
-			<Sidebar isOpen={isOpen} />
-			<Header />
+			<Sidebar isOpen={isOpen} setChatHeaderInfo={(id, name) => setChatHeaderInfo({ id, name })} />
+			<Header chatHeaderInfo={chatHeaderInfo} />
 			<main className="md:ml-[280px] px-4">{children}</main>
 			<div
 				className={`bg-backdrop fixed md:hidden w-full h-full top-0 left-0 right-0 bottom-0 transition-all backdrop-filter backdrop-blur-md z-[11] ${

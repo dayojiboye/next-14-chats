@@ -10,16 +10,17 @@ import { debounceInput } from "@/utils/helpers";
 
 type Props = {
 	isOpen: boolean;
+	setChatHeaderInfo: (id: number, name: string) => void;
 };
 
-export default function Sidebar({ isOpen }: Props) {
+export default function Sidebar({ isOpen, setChatHeaderInfo }: Props) {
 	const [searchText, setSearchText] = React.useState<string>("");
 	const [searchResult, setSearchResult] = React.useState<TSearchResult>(ChatData.profile.friends);
 
 	const onSearch = () => {
 		if (searchText.length > 0) {
 			const updatedSearchResult: TSearchResult = ChatData.profile.friends.filter((friend) => {
-				const pattern = new RegExp("\\b" + searchText + "\\b", "i");
+				const pattern = new RegExp("\\b" + searchText.trim() + "\\b", "i");
 				return pattern.test(friend.name) || pattern.test(friend.lastChat);
 			});
 			setSearchResult(updatedSearchResult);
@@ -82,10 +83,12 @@ export default function Sidebar({ isOpen }: Props) {
 				{searchResult.map((friend) => (
 					<ChatItem
 						key={friend.id}
+						id={friend.id}
 						name={friend.name}
 						picture={friend.picture}
 						lastChat={friend.lastChat}
 						latest_timestamp={friend.latest_timestamp}
+						onClick={() => setChatHeaderInfo(friend.id, friend.name)}
 					/>
 				))}
 			</div>
