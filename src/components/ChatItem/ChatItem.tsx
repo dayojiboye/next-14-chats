@@ -11,17 +11,17 @@ type Props = {
 
 export default function ChatItem({ name, picture, lastChat, latest_timestamp }: Props) {
 	return (
-		<Link href="" className="p-2 hover:rounded-md bg-transparent hover:bg-input flex gap-3">
+		<Link href="" className="p-2 hover:rounded-md bg-transparent hover:bg-input flex gap-2">
 			{picture ? (
 				<Image
 					alt={name}
 					width={500}
 					height={500}
 					src={picture}
-					className="w-12 h-12 rounded-[50%] shrink-0"
+					className="w-10 h-10 rounded-[50%] shrink-0"
 				/>
 			) : (
-				<span className="bg-initials w-12 h-12 rounded-[50%] text-white font-medium shrink-0 flex items-center justify-center">
+				<span className="bg-initials w-9 h-9 rounded-[50%] text-white font-medium shrink-0 flex items-center justify-center">
 					{name[0].toUpperCase()}
 				</span>
 			)}

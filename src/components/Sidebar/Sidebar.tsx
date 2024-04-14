@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen }: Props) {
 		<nav
 			data-transition="true"
 			className={`fixed md:absolute md:!left-0 top-0 h-full md:h-screen w-[280px] backdrop-filter backdrop-blur-3xl transition-all
-			 bg-sidebar pt-0 pb-14 md:pb-8 hide-scroll-bar overflow-y-scroll z-[12] md:!opacity-[1] md:!visible md:!pointer-events-auto md:!transition-none
+			 bg-sidebar pb-14 md:pb-8 hide-scroll-bar overflow-y-scroll z-[12] md:!opacity-[1] md:!visible md:!pointer-events-auto md:!transition-none
 				${
 					isOpen
 						? "left-0 opacity-[1] visible pointer-events-auto"
@@ -55,7 +55,7 @@ export default function Sidebar({ isOpen }: Props) {
 				/>
 			</div>
 
-			<div className="flex flex-col mt-4 px-4">
+			<div className="flex flex-col px-4">
 				{ChatData.profile.friends.map((friend) => (
 					<ChatItem
 						key={friend.id}
