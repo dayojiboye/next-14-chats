@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -19,11 +20,16 @@ export default function ChatItem({
 	id,
 	onClick,
 }: Props) {
+	const pathname = usePathname();
+	const isActivePath = pathname === `/${id}`;
+
 	return (
 		<Link
 			href={`/${id}`}
 			onClick={onClick}
-			className="p-2 hover:rounded-md bg-transparent hover:bg-input flex gap-2"
+			className={`p-2 rounded-md hover:bg-input flex gap-2 ${
+				isActivePath ? "!bg-blue-600" : "bg-transparent"
+			}`}
 		>
 			{picture ? (
 				<Image

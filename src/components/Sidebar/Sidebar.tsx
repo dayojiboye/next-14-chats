@@ -61,7 +61,7 @@ export default function Sidebar({ isOpen, setChatHeaderInfo }: Props) {
 
 						<div className="flex flex-col">
 							<h1 className="font-medium text-lg">{ChatData.profile.name}</h1>
-							<span className="text-sm text-status">{ChatData.profile.status}</span>
+							<span className="text-sm text-blue-600 font-medium">{ChatData.profile.status}</span>
 						</div>
 					</div>
 
