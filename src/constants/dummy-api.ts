@@ -115,7 +115,7 @@ const ChatData = {
 				{
 					text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
 					timestamp: "10:05 AM",
-					side: "left",
+					side: "right",
 					message_id: 5,
 				},
 				{
@@ -127,7 +127,7 @@ const ChatData = {
 				{
 					text: "Or maybe not, let me check logistics and call you. Give me sometime",
 					timestamp: "10:03 AM",
-					side: "left",
+					side: "right",
 					message_id: 3,
 				},
 				{

@@ -45,6 +45,7 @@ export default function PageLayout({
 	}, [pathname, id, currentChat]);
 
 	React.useEffect(() => {
+		setIsLoading(false);
 		const handleStopResize = () => {
 			IS_DESKTOP && IS_DESKTOP.matches && closeSidebar();
 			let resizeTimer;
@@ -93,7 +94,7 @@ export default function PageLayout({
 					aria-label="mobile navigation button"
 					aria-expanded={isOpen}
 					aria-controls="nav"
-					className="w-[48px] h-[48px] bg-sidebar flex items-center justify-center rounded-[50%]"
+					className="w-[48px] h-[48px] bg-sidebar flex items-center justify-center rounded-[50%] shadow-md shadow-zinc-800"
 					onClick={() => {
 						setIsOpen(!isOpen);
 
