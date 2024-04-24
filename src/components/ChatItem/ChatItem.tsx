@@ -9,7 +9,7 @@ type Props = {
 	lastChat: string;
 	latest_timestamp: string;
 	id: number;
-	onClick?: () => void | undefined;
+	onClick?: () => void;
 };
 
 export default function ChatItem({
@@ -21,11 +21,12 @@ export default function ChatItem({
 	onClick,
 }: Props) {
 	const pathname = usePathname();
-	const isActivePath = pathname === `/${id}`;
+	const href = `/${id}`;
+	const isActivePath = pathname === href;
 
 	return (
 		<Link
-			href={`/${id}`}
+			href={href}
 			onClick={onClick}
 			className={`p-2 rounded-md hover:bg-input flex gap-2 ${
 				isActivePath ? "!bg-blue-600" : "bg-transparent"

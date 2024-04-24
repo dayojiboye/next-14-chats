@@ -6,14 +6,12 @@ export type TSearchResult = {
 	lastChat: string;
 }[];
 
-export type TFriendChat =
-	| {
-			id: number;
-			name: string;
-			picture: string;
-			chatlog: TChatLog[];
-	  }
-	| {};
+export type TFriendChat = {
+	id: number;
+	name: string;
+	picture: string;
+	chatlog: TChatLog[];
+};
 
 export type TChatLog = {
 	text: string;
