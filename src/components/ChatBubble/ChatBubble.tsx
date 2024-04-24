@@ -1,5 +1,4 @@
-import { TChatLog, TFriendChat } from "@/types";
-import { timeStamp } from "console";
+import { TChatLog } from "@/types";
 import React from "react";
 
 type Props = {

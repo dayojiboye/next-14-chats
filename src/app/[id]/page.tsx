@@ -34,8 +34,8 @@ export default function page({ params }: Props) {
 					placeholder="Type message..."
 					inputClass="bg-transparent border border-header rounded-[32px] text-xs"
 				/>
-				<button className="h-fit w-fit group">
-					<EnvelopeIcon className="group-hover:[&>path]:fill-white flex-shrink-0" />
+				<button className="h-fit w-fit group flex-shrink-0">
+					<EnvelopeIcon className="group-hover:[&>path]:fill-white" />
 				</button>
 			</div>
 		</div>
