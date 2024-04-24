@@ -3,6 +3,7 @@ import React from "react";
 
 type Props = {
 	className?: string;
+	inputClass?: string;
 	name: string;
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 	value?: string | number | readonly string[];
@@ -17,6 +18,7 @@ export default function CustomInput({
 	value,
 	placeholder,
 	icon,
+	inputClass,
 	...props
 }: Props) {
 	const Icon = icon ? icon : null;
@@ -39,9 +41,12 @@ export default function CustomInput({
 					id={props.id ? props.id : name}
 					onChange={onChange}
 					value={value}
-					className={`block h-[32px] py-[10px] text-sm placeholder:text-faded w-full rounded-[4px] bg-input ${
-						Icon ? "px-9" : "px-3"
-					}`}
+					className={cn(
+						`block h-[32px] py-[10px] text-sm placeholder:text-faded w-full rounded-[4px] bg-input ${
+							Icon ? "px-9" : "px-3"
+						}`,
+						inputClass
+					)}
 					{...props}
 				/>
 			</div>

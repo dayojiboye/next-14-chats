@@ -74,7 +74,7 @@ export default function PageLayout({
 			) : (
 				<>
 					{currentChat && <Header chatHeaderInfo={chatHeaderInfo} />}
-					<main className="md:ml-[280px] px-4">{children}</main>
+					<main className="md:ml-[280px]">{children}</main>
 				</>
 			)}
 			<div

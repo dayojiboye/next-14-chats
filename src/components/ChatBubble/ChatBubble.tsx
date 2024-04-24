@@ -11,7 +11,7 @@ export default function ChatBubble({ chat }: Props) {
 
 	return (
 		<div
-			className={`w-full gap-16 flex first-of-type:mt-2 last-of-type:mb-[100px] ${
+			className={`w-full gap-16 flex first-of-type:mt-8 last-of-type:mb-[100px] ${
 				isUserTheSender ? "justify-end" : "justify-start"
 			}`}
 		>
